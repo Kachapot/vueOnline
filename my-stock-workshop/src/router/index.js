@@ -18,7 +18,7 @@ const routes = [
   },
   {
     path: "/about",
-    name: "About",
+    name: "about",
     component: About
   },
   {
@@ -26,30 +26,37 @@ const routes = [
     redirect: "/login"
   },
   {
+    path: "*",
+    redirect: "/login"
+  },
+  {
     path: "/register",
-    name: "Register",
+    name: "register",
     component: Register
   },
   {
     path: "/report",
-    name: "Report",
+    name: "register",
     component: Reprot
   },
   {
     path: "/stock",
-    name: "Stock",
+    name: "stock",
     component: Stock
   },
   {
-    path: "/stockcreaste",
-    name: "StockCreate",
+    path: "/stock-create",
+    name: "stock-create",
     component: StockCreate
   },
   {
-    path: "/stockedit",
-    name: "StockEdit",
+    path: "/stock-edit",
+    name: "stock-edit",
     component: StockEdit
   },
+  {
+    path: "/stock-edit/:id"
+  }
 ];
 
 const router = new VueRouter({
