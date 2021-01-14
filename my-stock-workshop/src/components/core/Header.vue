@@ -1,13 +1,13 @@
 <template>
   <div>
-    <v-app-bar app color="#212121" dense dark>
+    <v-app-bar app color="primary" dense dark>
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
       <v-toolbar-title>CMPOS Workshop V{{ version }}</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
-      <span>Username</span>
+      <span>{{ $store.state.username}}</span>
           <v-btn icon @click="onClickLogOff">
              <v-icon dark>mdi-export</v-icon>
           </v-btn>
@@ -22,7 +22,12 @@ export default {
     version(){
       return "1.0"
     }
-  }
+  },
+  methods: {
+    onClickLogOff(){
+      this.$store.dispatch('doLogout')
+    }
+  },
 };
 </script>
 

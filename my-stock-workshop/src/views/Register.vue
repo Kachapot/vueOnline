@@ -53,7 +53,7 @@ export default {
         password:""
       },
       usernameRules:[v1=>!!v1 || "Username is required",],
-      passwordRules:[v1=>!!v1 || "Password is required",]
+      passwordRules:[v1=>!!v1 || "Password is required", v2=>!!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(v2) || "ต้องมีอย่างน้อย8ตัวอักษรและมีตัวเลขอย่างน้อย1ตัว"]
     }
   },
   methods: {

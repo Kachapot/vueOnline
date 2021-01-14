@@ -5,10 +5,11 @@
       </router-link>
       <v-list shaped>
         <v-list-item-group v-model="selectedMenu"  color="primary">
-          <v-list-item v-for="([icon, title,route], index) in menus" :key="index">
+          <v-list-item v-for="([icon, title, route], i) in menus" :key="i" link @click="onClickMenu(route)">
             <v-list-item-icon>
                <v-icon >{{ icon }}</v-icon>
             </v-list-item-icon>
+
             <v-list-item-content>
               <v-list-tile-title>{{ title }} </v-list-tile-title>
             </v-list-item-content>
