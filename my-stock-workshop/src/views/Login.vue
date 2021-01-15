@@ -1,5 +1,7 @@
 <template>
-  <v-container>
+  <v-container v-if="!$store.state.isLogged">
+    <div class="mt-16 hidden-sm-and-down">
+    </div>
     <v-row class="justify-center">
       <v-card style="width:400px">
         <div class="white--text align-end colorRoyal" style="height:200px">

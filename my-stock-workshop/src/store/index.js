@@ -8,14 +8,15 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     isLogged: false,
-    username: ""
+    username: "",
+    menuStatus: false,
   },
   getters: {
     isLogin(state) {
       return state.isLogged;
     },
     username(state) {
-      return state.username;
+      return "User :"+state.username;
     }
   },
   mutations: {
