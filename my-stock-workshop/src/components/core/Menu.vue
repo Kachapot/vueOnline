@@ -1,11 +1,14 @@
 <template>
     <v-navigation-drawer app permanent>
-      <router-link to="/about" exact>
-        <v-img src="@/assets/vue_display.jpg" alt="" width="100% "></v-img>
+      <router-link to="/about" exact >
+      <div class="align-center" width="100%" style="height:200px; margin:auto; background:#141E30; color:white; text-decoration:none;border:none ">
+        
+      </div>
+        
       </router-link>
       <v-list shaped>
         <v-list-item-group v-model="selectedMenu"  color="primary">
-          <v-list-item v-for="([icon, title, route], i) in menus" :key="i" link @click="onClickMenu(route)">
+          <v-list-item v-for="([icon, title, route], i) in menus" :key="i" link @click="menus(route)">
             <v-list-item-icon>
                <v-icon >{{ icon }}</v-icon>
             </v-list-item-icon>

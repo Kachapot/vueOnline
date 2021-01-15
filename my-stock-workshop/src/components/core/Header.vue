@@ -1,13 +1,13 @@
 <template>
   <div>
-    <v-app-bar app color="primary" dense dark>
+    <v-app-bar app dense dark class="colorRoyal">
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
       <v-toolbar-title>CMPOS Workshop V{{ version }}</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
-      <span>{{ $store.state.username}}</span>
+      <span>{{ $store.state.username }}</span>
           <v-btn icon @click="onClickLogOff">
              <v-icon dark>mdi-export</v-icon>
           </v-btn>
@@ -25,6 +25,7 @@ export default {
   },
   methods: {
     onClickLogOff(){
+      this.$router.push("/")
       this.$store.dispatch('doLogout')
     }
   },

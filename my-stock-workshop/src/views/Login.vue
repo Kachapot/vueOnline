@@ -2,11 +2,11 @@
   <v-container>
     <v-row class="justify-center">
       <v-card style="width:400px">
-        <v-img class="white--text align-end" src="@/assets/login_header.jpg" height="200px">
-          <v-card-title primary-title>
+        <div class="white--text align-end colorRoyal" style="height:200px">
+          <v-card-title primary-title >
             Login
           </v-card-title>
-        </v-img>
+        </div>
         <v-card-text>
           <v-form>
             <v-text-field
@@ -29,7 +29,7 @@
             <!-- px is padding, pg is margin -->
             <v-row class="justify-space-between px-3 pt-5"> 
               <v-btn text @click.prevent="$router.push('/register')">Register</v-btn>
-              <v-btn color="success" @click="$store.state.isLogged = !$store.state.isLogged">Login</v-btn>
+              <v-btn class="colorRoyal" dark @click="$store.state.isLogged = !$store.state.isLogged,submit()" >Login</v-btn>
             </v-row>
           </v-form>
         </v-card-text>
@@ -51,6 +51,7 @@ export default {
   },
   methods: {
     submit(){
+      this.$router.push("/stock")
       this.$store.dispatch({
         type:"doLogin",
         username: this.account.username,
