@@ -48,10 +48,36 @@
     </v-row>
     <!-- Table section -->
     <v-card class=" mt-5">
-      <v-data-table :headers="header" :items="mDataArray">
+      <v-data-table :search="search" :headers="header" :items="mDataArray">
+       <!-- table top section -->
+        <template v-slot:top>
+          <v-toolbar flat color="white">
+            <v-toolbar-title>Stock</v-toolbar-title>
+            <v-divider class="mx-4" inset vertical></v-divider>
+            <v-text-field
+              v-model="search"
+              append-icon="search"
+              label="Search"
+              single-line
+              hide-details
+            ></v-text-field>
+            <v-spacer></v-spacer>
+            <v-btn
+              @click="$router.push('/stock-create')"
+              color="primary"
+              dark
+              class="mb-2"
+            >
+              <v-icon left>add</v-icon>
+              <span class="hidden-sm-and-down">New Product</span>
+            </v-btn>
+          </v-toolbar>
+        </template>
+
+        <!-- table tr sectoin -->
         <template v-slot:item="{ item }">
           <tr>
-            <td v-if="false">{{ item.id }}</td>
+            <td >{{ item.id }}</td>
             <td>
               <v-img class="hidden-md-and-down"
                 :src="item.image | imageUrl"
@@ -61,10 +87,18 @@
                 max-height="50"
               ></v-img>
             </td>
-            <td>{{ item.name }}</td>
-            <td>{{ item.price }}</td>
+            <td max-width="500px">{{ item.name }}</td>
+            <td class="align-right">{{ item.price }} ฿</td>
             <td>{{ item.stock }} pcs.</td>
-            <td>XX</td>
+            <td>
+                  <v-icon color="mr-2" @click="editItem(item)">
+                    edit
+                  </v-icon>
+               <span class="ma-2"></span>
+                <v-icon @click="deleteItem(item)">
+                  delete
+                </v-icon> 
+            </td>
           </tr>
         </template>
       </v-data-table>
@@ -79,6 +113,7 @@ export default {
   name: "Stock",
   data() {
     return {
+      search:"",
       mDataArray: [],
       header: [
         {
@@ -104,7 +139,12 @@ export default {
       console.log(JSON.stringify(res.data));
       this.mDataArray = res.data;
     });
-  }
+  },
+  methods: {
+    editItem(item){
+      this.$router.push(`/stock-edit/${item.id}`)
+    }
+  },
 };
 </script>
 

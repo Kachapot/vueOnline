@@ -36,7 +36,7 @@ const routes = [
   },
   {
     path: "/report",
-    name: "register",
+    name: "report",
     component: Reprot
   },
   {
@@ -55,8 +55,11 @@ const routes = [
     component: StockEdit
   },
   {
-    path: "/stock-edit/:id"
-  }
+    path: "/stock-edit/:id",
+    name: "stack-edit",
+    component: StockEdit
+  },
+  
 ];
 
 const router = new VueRouter({

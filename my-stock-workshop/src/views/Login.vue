@@ -1,6 +1,6 @@
 <template>
   <v-container v-if="!$store.state.isLogged">
-    <div class="mt-16 hidden-sm-and-down">
+    <div class="my-auto hidden-sm-and-down">
     </div>
     <v-row class="justify-center">
       <v-card style="width:400px">
